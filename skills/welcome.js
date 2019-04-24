@@ -5,7 +5,7 @@ module.exports = function (controller) {
 
     controller.on('bot_space_join', function (bot, event) {
 
-        var welcome = `Hi <@personId:${event.actorId}>, so glad meeting you!`;
+        var welcome = `Hello <@personId:${event.actorId}>, delighted to meet you! It's a fine day for marketing communications.`;
 
         if (this.identity) {
             welcome += `<br/>I am the **${this.identity.displayName}** bot`;
@@ -23,8 +23,8 @@ module.exports = function (controller) {
             var help = "Type `help` to learn about my skills.";
 
             if (rawMessage.roomType == "group") {
-                help = "Note that this is a 'Group' space. I will answer only if mentionned.<br/>";
-                help += "To learn about my skills, type " + bot.appendMention(rawMessage, "help");
+                help = "To find out what I can do, type " + bot.appendMention(rawMessage, "help") + "<br>";
+                help += "Note that this is a 'Group' space. I will answer only if mentioned.<br/>";
             }
 
             bot.say({
